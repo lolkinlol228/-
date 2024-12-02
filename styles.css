@@ -326,6 +326,12 @@
         max-height: 40vh;
     }
 }
+.d-flex {
+    display: flex;
+    gap: 20px;
+    word-wrap: break-word; 
+    justify-content: space-between; 
+}
 
 .list-group-item.active {
     background-color: #1e90ff;
@@ -344,4 +350,13 @@
         flex: 1 1 100%;
         max-width: 100%;
     }
+}.list-group-item {
+    height: auto; 
+    white-space: normal; 
+    word-wrap: break-word; 
+  }
+  
+
+  .list-group-item {
+    min-height: auto !important;
 }

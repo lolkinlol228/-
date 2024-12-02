@@ -878,9 +878,9 @@ function renderMatching() {
     gameContainer.appendChild(row);
 
     const colNames = document.createElement('div');
-    colNames.style.flex = '0 0 45%';
-    colNames.style.maxWidth = '45%';
-    colNames.style.maxHeight = '70vh';
+    
+    colNames.className = 'col';
+    
     colNames.style.overflowY = 'auto';
     colNames.style.paddingRight = '10px';
     const listNames = document.createElement('ul');
@@ -907,11 +907,13 @@ function renderMatching() {
     row.appendChild(colNames);
 
     const colDescriptions = document.createElement('div');
-    colDescriptions.style.flex = '0 0 45%';
-    colDescriptions.style.maxWidth = '45%';
-    colDescriptions.style.maxHeight = '70vh';
+  
+    colDescriptions.className = 'col';
+   
+   
     colDescriptions.style.overflowY = 'auto';
     colDescriptions.style.paddingLeft = '10px';
+
     const listDescriptions = document.createElement('ul');
     listDescriptions.className = 'list-group';
     listDescriptions.style.minWidth = '200px';
@@ -928,7 +930,7 @@ function renderMatching() {
         li.style.padding = '10px 16px';
         li.style.borderRadius = '6px';
         li.style.border = '1px solid #ced4da';
-        li.style.marginBottom = '8px';
+        li.style.marginBottom = '10px';
         li.addEventListener('click', selectDescription);
 
         const img = document.createElement('img');
@@ -1018,7 +1020,7 @@ function renderMatching() {
     }
 }
 
-function shuffle(array) {
+function shuffle(array) {   
     let currentIndex = array.length, randomIndex;
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
