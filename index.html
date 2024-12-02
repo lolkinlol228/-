@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение Химической Посуды</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="feedbackModalLabel">Результат</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body" id="feedbackModalBody">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="container my-4">
+        <h1 class="text-center mb-4">Изучение Химической Посуды</h1>
+        
+   
+        <div class="text-center mb-4">
+            <button class="btn btn-primary me-2" onclick="setGameMode('viewAll')">Просмотр всей посуды</button>
+            <button class="btn btn-primary me-2" onclick="setGameMode('guessByDescription')">Угадай по описанию</button>
+            
+            <button class="btn btn-success me-2" onclick="setGameMode('guessByImage')">Угадай по изображению</button>
+            <button class="btn btn-warning" onclick="setGameMode('multipleChoice')">Викторина</button>
+   
+<button class="btn btn-info me-2" onclick="setGameMode('matching')">Сопоставь</button>
+<button class="btn btn-success me-2" onclick="setGameMode('scrambledNames')">Смешанные имена</button>
+<button class="btn btn-info me-2" onclick="setGameMode('memoryMatching')">Память: Сопоставь</button>
+
+
+
+        </div>
+        
+    
+        <div id="gameContainer">
+  
+        </div>
+        
+  
+        <button style="display: none;" class="btn btn-secondary mt-4" data-bs-toggle="modal" data-bs-target="#addModal">Добавить новую посуду</button>
+   
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <form id="addForm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addModalLabel">Добавить новую посуду</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Название</label>
+                    <input type="text" class="form-control" id="name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Описание</label>
+                    <textarea class="form-control" id="description" rows="3" required></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="image" class="form-label">URL изображения</label>
+                    <input type="url" class="form-control" id="image">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Добавить</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .card-front, .card-back {
+            width: 100%;
+            height: 200px;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .card.flipped .card-front {
+            transform: rotateY(180deg);
+        }
+        
+        .card.flipped .card-back {
+            transform: rotateY(0deg);
+        }
+        
+        .card-front {
+            transform: rotateY(0deg);
+        }
+        
+        .card-back {
+            transform: rotateY(-180deg);
+            background-color: #f8f9fa;
+        }
+        
+        @media (max-width: 576px) {
+            .col-6, .col-md-4, .col-lg-3 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        </style>
+        
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
